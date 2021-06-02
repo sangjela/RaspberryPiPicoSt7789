@@ -11,8 +11,8 @@ sangje@macmini0 RaspberryPiPicoSt7789 % git push -u origin main
 ```
 
 ## ● if run main, normaly show this way...
-https://youtu.be/KnY7AaVzwSo old pixel by pixel draw way
-https://youtu.be/fUVTQXIUx5M current improved buffer to display way
+* https://youtu.be/KnY7AaVzwSo old pixel by pixel draw way
+* https://youtu.be/fUVTQXIUx5M current improved buffer to display way
 
 ## ● /util    
 You Can convert PNG data to RAW
