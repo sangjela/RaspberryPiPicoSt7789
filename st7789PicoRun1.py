@@ -11,9 +11,6 @@ import st7789py as st7789
 from fonts import vga2_8x8 as font1
 from fonts import vga1_16x32 as font2
 import random
-#import dotdict
-#from .dotdict import Dotdict
-#from sys import exit
 
 #SPI(1) default pins
 spi1_sck=10
@@ -26,7 +23,7 @@ disp_height = 240
 CENTER_Y = int(disp_width/2)
 CENTER_X = int(disp_height/2)
 
-imageFile = "utaha_240.raw24"
+imageFile = "utaha_240.raw" #.raw is 16 bit RGB565 raw file
 
 print(uos.uname())
 spi1 = machine.SPI(1, baudrate=40000000, polarity=1)
@@ -85,40 +82,29 @@ display.text(font1, "russhughes/st7789py_mpy", 10, 120)
     
 print("- Text run end -")
 
-#show image rgb 24 read init
-rowBufSize = 20
+#show image rgb565 16bit read init
+rowBufSize = 80 #must be 1/n value of screen height
 rowStart = 0
 fseekoffset = 0
+pixelByte = 2
 
 #loop file read and display by rowBufSize height
-while fseekoffset < disp_width * disp_height * 3 :
-    fseekoffset = rowStart * disp_width * 3
-    print( 'fseekoffset %d' % fseekoffset ) 
+while fseekoffset < disp_width * disp_height * pixelByte :
+    fseekoffset = rowStart * disp_width * pixelByte
+    print( 'fseekoffset %d' % fseekoffset )
+
     #file open RGB stream Read
     f = open(imageFile, 'rb')
     f.seek(fseekoffset)
-    content = f.read(disp_width * rowBufSize * 3) #RGB
+    content = f.read(disp_width * rowBufSize * pixelByte) #RGB565 16bit
     f.close() # closing file object
     
-    if len(content) < disp_width * 3:
+    if len(content) < disp_width * pixelByte:
         break;
 
-    #bitmapData = {'HEIGHT': 240, 'WIDTH': 240, 'BPP': 16, 'BITMAP': content}
-    #bitmapDot = dotdict.Dotdict(bitmapData)
-    #print(bitmapDot)
-    #print(bitmapDot.HEIGHT)
+    #loaded content (buf) to screen
+    display.blit_buffer(content, 0, rowStart, disp_width, rowBufSize)
 
-    #display.bitmap( bitmapData, 0, 0, 0)
-    #traversal for screen bit row->col
-    #for bitrow in range(disp_height):
-    bufIdx = 0
-    for bitrow in range(rowStart, rowStart + rowBufSize ):
-        #print( bitrow, end = ' ')
-        for bitcol in range(disp_width):
-            #bitidx = bitrow * disp_width * 3 + bitcol * 3
-            display.pixel(bitcol, bitrow,
-                st7789.color565(content[bufIdx],content[bufIdx+1],content[bufIdx+2]))
-            bufIdx += 3 #read loaded buffer offset
     rowStart += rowBufSize
 
 print("- Image run end -")
