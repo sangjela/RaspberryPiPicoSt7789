@@ -3,6 +3,7 @@ ST7789 Interface 240x240 IPS LCD Display Run with Raspberry Pi Pico. reference h
 
 ## ● normaly I commit this way...
 ```
+sangje@macmini0 RaspberryPiPicoSt7789 % git pull origin main ... (may be there are update on github, so I must pull before push..)
 sangje@macmini0 RaspberryPiPicoSt7789 % git add .
 sangje@macmini0 RaspberryPiPicoSt7789 % git status
 sangje@macmini0 RaspberryPiPicoSt7789 % git commit -m "Add existing files"
