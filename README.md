@@ -15,3 +15,5 @@ https://youtu.be/KnY7AaVzwSo
 
 ## ● /util    
 You Can convert PNG data to RAW
+
+* Upload & Download those file to Pico /pyboard/ folder via rshell tool is Good.
