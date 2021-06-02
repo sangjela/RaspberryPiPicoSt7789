@@ -11,6 +11,7 @@ sangje@macmini0 RaspberryPiPicoSt7789 % git push -u origin main
 
 ## ● if run main, normaly show this way...
 https://youtu.be/KnY7AaVzwSo
+[![Raspberry Pi Pico st7789 slow image write test. pixel by pixel way.]](https://youtu.be/KnY7AaVzwSo "Raspberry Pi Pico st7789 slow image write test. pixel by pixel way.")
 
 ## ● /util    
 You Can convert PNG data to RAW
