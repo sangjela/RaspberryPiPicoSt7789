@@ -83,7 +83,7 @@ display.text(font1, "russhughes/st7789py_mpy", 10, 120)
 print("- Text run end -")
 
 #show image rgb565 16bit read init
-rowBufSize = 80 #must be 1/n value of screen height
+rowBufSize = 40 #must be 1/n value of screen height
 rowStart = 0
 fseekoffset = 0
 pixelByte = 2
