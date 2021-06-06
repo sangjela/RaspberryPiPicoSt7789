@@ -9,8 +9,10 @@ from time import sleep
 import st7789py as st7789
 
 from truetype import NotoSans_32 as noto_sans
-from truetype import NotoSerif_32 as noto_serif
-from truetype import NotoSansMono_32 as noto_mono
+
+#not enough disk, so I delete some truetype fonts
+#from truetype import NotoSerif_32 as noto_serif
+#from truetype import NotoSansMono_32 as noto_mono
 
 
 def notoShow():
@@ -55,13 +57,14 @@ def notoShow():
         center(noto_sans, "NotoSans", row, st7789.RED)
         row += noto_sans.HEIGHT
 
+        #not enough disk, so I delete some truetype fonts
         # center the name of the second font, using the font
-        center(noto_serif, "NotoSerif", row, st7789.GREEN)
-        row += noto_serif.HEIGHT
+        #center(noto_serif, "NotoSerif", row, st7789.GREEN)
+        #row += noto_serif.HEIGHT
 
         # center the name of the third font, using the font
-        center(noto_mono, "NotoSansMono", row, st7789.BLUE)
-        row += noto_mono.HEIGHT
+        #center(noto_mono, "NotoSansMono", row, st7789.BLUE)
+        #row += noto_mono.HEIGHT
         
         # center the name of the first font, using the font, 한글출력시도 -> 안됨.
         center(noto_sans, "Cannot Korean", row, st7789.RED) #

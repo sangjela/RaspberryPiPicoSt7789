@@ -23,7 +23,8 @@ disp_height = 240
 CENTER_Y = int(disp_width/2)
 CENTER_X = int(disp_height/2)
 
-imageFile = "utaha_240.raw" #.raw is 16 bit RGB565 raw file
+#imageFile = "utaha_240.raw" #.raw is 16 bit RGB565 raw file. 
+imageFile = "./picseq/utaha240_1.raw" #disk not enough, I delete utaha_240.raw in Pico disk. alternatly, pick one of picseq
 
 print(uos.uname())
 spi1 = machine.SPI(1, baudrate=40000000, polarity=1)
